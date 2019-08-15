@@ -13,12 +13,6 @@ export default class Meals extends Component {
         }
     }
 
-    createMeal = (data) => {
-        this.setState({
-            meals: data
-        })
-    }
-
     render(){
         console.log(this.props)
         const mappedMeals = this.props.meals.map((meal, i) => {

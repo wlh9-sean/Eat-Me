@@ -17,6 +17,8 @@ app.get('/api/snacks', snackCtrl.getSnacks)
 app.post('/api/createMeal', mealCtrl.createMeal)
 app.post('/api/createSnack', snackCtrl.createSnack)
 
+app.delete('/api/deleteMeal/:id', mealCtrl.deleteMeal)
+
 const port = 6060
 app.listen(port, () => {
     console.log(`Serving on port ${port}`)

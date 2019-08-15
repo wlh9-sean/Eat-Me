@@ -36,7 +36,16 @@ const createMeal = (request, response) => {
     response.status(200).send(meals)
 }
 
+const deleteMeal = ('/api/meals/:id',(request, response) => {
+    const {id} =request.params
+    meals = meals.filter(meal => {
+        if(meal.id !== +id) return meal
+    })
+    response.status(200).send(meals)
+})
+
 module.exports = {
     getMeals,
-    createMeal
+    createMeal,
+    deleteMeal
 }
