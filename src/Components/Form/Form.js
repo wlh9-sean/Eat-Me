@@ -86,29 +86,32 @@ export default class Form extends Component {
 
     render(){
         return(
-            <div>
+            <div className="everything-container">
 
                 <div className="food-form">
-                    <label>Food</label>
-                    <input type='text' name='name' onChange={this.handleInput} />
+                    <label className="label">Food</label>
+                    <input type='text' name='name' onChange={this.handleInput} className="input"/>
 
-                    <label>Calories</label>
-                    <input type='number' name='calories' onChange={this.handleInput}/>
+                    <label className="label">Calories</label>
+                    <input type='number' name='calories' onChange={this.handleInput} className="input"/>
 
-                    <select value={this.state.dropDown} onChange={this.handleChange}>
+                    <select value={this.state.dropDown} onChange={this.handleChange} className="selector">
                         <option value = 'Meal'>Meal</option>
                         <option value = 'Snack'>Snack</option>
                     </select>
-                    <button onClick={this.createFood}>Eat It!</button> 
+                    <button onClick={this.createFood} className="button">Eat It!</button> 
                 </div>
 
-                 <div>
-                    <Meals meals={this.state.meals}/>
-                 </div>
+                <div className="foods-display">
+                    <div className="meals">
+                        <Meals meals={this.state.meals}/>
+                    </div>
 
-                 <div>
-                     <Snacks snacks={this.state.snacks}/>
-                 </div>
+                    <div className="snacks">
+                        <Snacks snacks={this.state.snacks}/>
+                    </div>
+
+                </div>
 
             </div>
         )

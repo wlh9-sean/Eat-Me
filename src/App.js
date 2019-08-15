@@ -9,8 +9,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Form />
-      {/* <Meals />
-      <Snacks /> */}
     </div>
   );
 }

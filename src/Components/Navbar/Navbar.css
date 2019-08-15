@@ -1,13 +1,39 @@
-.navbar {
+.nav-container {
     width: 100%;
+    display: flex;
+    -webkit-box-shadow: 0px 4px 3px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 3px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 3px -4px rgba(0,0,0,0.75);
+}
+
+.navbar {
+    width: 33%;
     height: 10vh;
-    background: #0F1626;
+    background: #F5F5F5;
     display: flex;
     align-items: center;
 }
 
 nav > h1 {
-    font-size: 50px;
-    color: white;
+    font-size: 25px;
+    color: #0F1626;
     margin-left: 3%;
+}
+
+.navy-box {
+    height: 10vh;
+    width: 22.3%;
+    background: #9099A2;
+}
+
+.leather-box {
+    height: 10vh;
+    width: 22.3%;
+    background: #96858F;
+}
+
+.coral-box {
+    height: 10vh;
+    width: 22.4%;
+    background: #D5D5D5;
 }
