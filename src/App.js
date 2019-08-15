@@ -1,12 +1,16 @@
 import React from 'react';
-import Meals from './Components/Meals/Meals'
-import Snacks from './Components/Snacks/Snacks'
+import Form from './Components/Form/Form'
+import Navbar from './Components/Navbar/Navbar'
+
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <Meals />
-      <Snacks />
+      <Navbar />
+      <Form />
+      {/* <Meals />
+      <Snacks /> */}
     </div>
   );
 }

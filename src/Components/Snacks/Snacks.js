@@ -14,18 +14,18 @@ export default class Snacks extends Component {
         }
     }
 
-    componentDidMount = () => {
-        axios.get('/api/snacks').then(response => {
-            this.setState({
-                snacks: response.data
-            })
-        }).catch(err => {
-            console.log(err)
-        })
-    }
+    // componentDidMount = () => {
+    //     axios.get('/api/snacks').then(response => {
+    //         this.setState({
+    //             snacks: response.data
+    //         })
+    //     }).catch(err => {
+    //         console.log(err)
+    //     })
+    // }
 
     render(){
-        const mappedSnacks = this.state.snacks.map((snack, i) => {
+        const mappedSnacks = this.props.snacks.map((snack, i) => {
            return <Snack key={i} snack={snack} />
         })
         return(

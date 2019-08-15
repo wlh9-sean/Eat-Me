@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Meal from './Meal'
-
 import axios from 'axios'
 
 export default class Meals extends Component {
@@ -14,18 +13,15 @@ export default class Meals extends Component {
         }
     }
 
-    componentDidMount = () => {
-        axios.get('/api/meals').then(response => {
-            this.setState({
-                meals: response.data
-            })
-        }).catch(err => {
-            console.log(err)
+    createMeal = (data) => {
+        this.setState({
+            meals: data
         })
     }
 
     render(){
-        const mappedMeals = this.state.meals.map((meal, i) => {
+        console.log(this.props)
+        const mappedMeals = this.props.meals.map((meal, i) => {
             return <Meal key={i} meal={meal} />
         })
         return(

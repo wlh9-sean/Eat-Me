@@ -15,6 +15,28 @@ const getSnacks = (request, response) => {
     response.status(200).send(snacks)
 }
 
+const createSnack = (request, response) => {
+    const {name, calories} = request.body
+    let id
+
+    if(snacks.length === 0){
+        id = 1
+    } else {
+        id = snacks[snacks.length - 1].id + 1
+    }
+
+    const newSnack = {
+        id,
+        name,
+        calories
+    }
+
+    snacks.push(newSnack)
+
+    response.status(200).send(snacks)
+}
+
 module.exports = {
-    getSnacks
+    getSnacks,
+    createSnack
 }
