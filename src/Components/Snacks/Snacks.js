@@ -14,19 +14,16 @@ export default class Snacks extends Component {
         }
     }
 
-    // componentDidMount = () => {
-    //     axios.get('/api/snacks').then(response => {
-    //         this.setState({
-    //             snacks: response.data
-    //         })
-    //     }).catch(err => {
-    //         console.log(err)
-    //     })
-    // }
+    deleteSnack = (id) => {
+        console.log(id)
+        axios.delete(`/api/deleteSnack/${id}`).then(response => {
+            this.props.handleDeleteSnack(response.data)
+        })
+    }
 
     render(){
         const mappedSnacks = this.props.snacks.map((snack, i) => {
-           return <Snack key={i} snack={snack} />
+           return <Snack key={i} snack={snack} deleteSnack={this.deleteSnack}/>
         })
         return(
             <div>

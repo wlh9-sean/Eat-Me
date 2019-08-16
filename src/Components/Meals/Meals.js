@@ -2,21 +2,25 @@ import React, {Component} from 'react'
 import Meal from './Meal'
 import axios from 'axios'
 
-export default class Meals extends Component {
-    constructor(){
-        super()
 
-        this.state = {
-            meals: [],
-            name: '',
-            calories: 0
-        }
+
+export default class Meals extends Component {
+    
+
+    deleteMeal = (id) => {
+        axios.delete(`/api/deleteMeal/${id}`).then(response => {
+            this.props.handleDelete(response.data)
+        })
     }
 
+   
+
+    
+
     render(){
-        console.log(this.props)
+        console.log(this.props.meals)
         const mappedMeals = this.props.meals.map((meal, i) => {
-            return <Meal key={i} meal={meal} />
+            return <Meal key={i} meal={meal} deleteMeal={this.deleteMeal} updateMeal={this.props.updateMeal}/>
         })
         return(
             <div>

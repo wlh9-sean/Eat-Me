@@ -36,10 +36,24 @@ const createMeal = (request, response) => {
     response.status(200).send(meals)
 }
 
-const deleteMeal = ('/api/meals/:id',(request, response) => {
+const updateMeal = (request, response) => {
+    const {id} = request.params
+    const updatedMeal = request.body
+
+    let myMeal = meals.findIndex(meal =>{
+        return meal.id === +id
+    })
+
+    meals[myMeal]=updatedMeal
+
+    response.status(200).send(meals)
+}
+
+const deleteMeal = ((request, response) => {
     const {id} =request.params
     meals = meals.filter(meal => {
-        if(meal.id !== +id) return meal
+        return meal.id !== +id
+
     })
     response.status(200).send(meals)
 })
@@ -47,5 +61,6 @@ const deleteMeal = ('/api/meals/:id',(request, response) => {
 module.exports = {
     getMeals,
     createMeal,
-    deleteMeal
+    deleteMeal,
+    updateMeal
 }

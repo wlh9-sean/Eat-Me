@@ -36,7 +36,30 @@ const createSnack = (request, response) => {
     response.status(200).send(snacks)
 }
 
+const updateSnack = (request, response) => {
+    const {id} = request.params
+    const updateSnack = request.body
+
+    let mySnack = snacks.findIndex(snack => {
+        return snack.id === +id
+    })
+
+    snacks[mySnack]=updateSnack
+
+    response.status(200).send(meals)
+}
+
+const deleteSnack = ((request, response) => {
+    const {id} = request.params
+    snacks = snacks.filter(snack => {
+        return snack.id !== +id
+    })
+    response.status(200).send(snacks)
+})
+
 module.exports = {
     getSnacks,
-    createSnack
+    createSnack,
+    deleteSnack,
+    updateSnack
 }

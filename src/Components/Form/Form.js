@@ -49,8 +49,8 @@ export default class Form extends Component {
             axios.post('/api/createMeal', body).then(response => {
                 this.setState({
                     meals: response.data,
-                    name: '',
-                    calories: 0
+                    // name: '',
+                    // calories: 0
                 })
             })
         } 
@@ -84,6 +84,25 @@ export default class Form extends Component {
         })
     }
 
+    handleDelete = (data) => {
+        this.setState({
+            meals: data,
+        })
+    }
+
+    handleDeleteSnack = (data) => {
+        console.log(data)
+        this.setState({
+            snacks: data
+        })
+    }
+
+    updateMeal = (data) => {
+        this.setState({
+            meals: data
+        })
+    }
+
     render(){
         return(
             <div className="everything-container">
@@ -104,11 +123,11 @@ export default class Form extends Component {
 
                 <div className="foods-display">
                     <div className="meals">
-                        <Meals meals={this.state.meals}/>
+                        <Meals meals={this.state.meals} handleDelete={this.handleDelete} updateMeal={this.updateMeal}/>
                     </div>
 
                     <div className="snacks">
-                        <Snacks snacks={this.state.snacks}/>
+                        <Snacks snacks={this.state.snacks} handleDeleteSnack={this.handleDeleteSnack}/>
                     </div>
 
                 </div>
