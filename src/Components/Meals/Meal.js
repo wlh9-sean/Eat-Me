@@ -30,17 +30,13 @@ class Meal extends Component {
         }
         axios.put(`/api/updateMeal/${id}`, updatedMeal).then(response => {
             this.props.updateMeal(response.data)
+        }).catch(err => {
+            console.log(err)
         })
 
-        this.setState({isEdit: false})
+        this.setState({isEdit: !this.state.isEdit})
 
-    }
-
-
-
-
-
-    
+    } 
 
     handleInput = (event) => {
         this.setState({
@@ -51,7 +47,7 @@ class Meal extends Component {
     render(){
         const {id} = this.props.meal
         const {deleteMeal} = this.props
-        
+
         return(
             <div className="meal-display">
                 {!this.state.isEdit ?

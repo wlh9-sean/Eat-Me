@@ -103,6 +103,12 @@ export default class Form extends Component {
         })
     }
 
+    updateSnack = (data) => {
+        this.setState({
+            snacks: data
+        })
+    }
+
     render(){
         return(
             <div className="everything-container">
@@ -127,7 +133,7 @@ export default class Form extends Component {
                     </div>
 
                     <div className="snacks">
-                        <Snacks snacks={this.state.snacks} handleDeleteSnack={this.handleDeleteSnack}/>
+                        <Snacks snacks={this.state.snacks} handleDeleteSnack={this.handleDeleteSnack} updateSnack={this.updateSnack}/>
                     </div>
 
                 </div>

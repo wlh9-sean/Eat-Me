@@ -10,6 +10,8 @@ export default class Meals extends Component {
     deleteMeal = (id) => {
         axios.delete(`/api/deleteMeal/${id}`).then(response => {
             this.props.handleDelete(response.data)
+        }).catch(err => {
+            console.log(err)
         })
     }
 
@@ -18,7 +20,6 @@ export default class Meals extends Component {
     
 
     render(){
-        console.log(this.props.meals)
         const mappedMeals = this.props.meals.map((meal, i) => {
             return <Meal key={i} meal={meal} deleteMeal={this.deleteMeal} updateMeal={this.props.updateMeal}/>
         })

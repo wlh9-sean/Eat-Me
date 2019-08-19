@@ -46,7 +46,7 @@ const updateSnack = (request, response) => {
 
     snacks[mySnack]=updateSnack
 
-    response.status(200).send(meals)
+    response.status(200).send(snacks)
 }
 
 const deleteSnack = ((request, response) => {
