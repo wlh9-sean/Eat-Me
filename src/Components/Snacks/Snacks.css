@@ -3,3 +3,11 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+.snacks-two {
+    width: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
